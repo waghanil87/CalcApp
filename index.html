@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html data-ng-app="myList">
+<head>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="css/bootstrap.min.css" />
+     <link rel="stylesheet" type="text/css" href="css/style.css" />
+     <link rel="stylesheet" href="css/bootstrap-theme.min.css" >
+     <link rel="stylesheet" href="css/bootstrap-theme.css" >
+
+     <script src="js/jquery.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+	 <script src="js/angular.min.js" type="text/javascript"></script>
+	 
+	 <script src="controllers/calculator-controller.js" type="text/javascript"></script>
+	 <script src="services/calculator-services.js" type="text/javascript"></script>
+	 <script src="services/data-service.js" type="text/javascript"></script>
+	 <script src="directives/calculator-directives.js" type="text/javascript"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="CalculatorController as ctrl" >
+		<div class="jumbotron main container" ng-init="initialScope()">
+		  	<div class="resultContainer">
+			  	<div class="row">
+			  		<label class="label result">Total: <span>{{result}}</span></label>
+			  		<label class="label calculation">Calculation: <span>{{calculation}}</span></label>
+				    <input type="text" id="calNumber" ng-model="calNumber" placeholder="0" focus="true" ng-blur="onElementBlur()" tabindex="1" only-digits/>
+				</div>
+				<div class="row">
+				    <span class="operand" data-model="operand">{{operand}}</span>
+				</div>
+			</div>
+			<div class="container text-center"> 
+				<div class="row">
+						<div class="list-group records" ng-show="show">
+						  <a href="#" ng-repeat="item in records" ng-class="{active: isActive(item)}" class="list-group-item recordList" ng-click="savedRecord(item)">
+							  	<input type="text" placeholder="Record : {{item.recordNo}}" ng-model="item.recordNo" ng-click="allowInput()" class="editedName"/>
+							  	<span class="pull-right">
+							  		<span>{{item.cal}}</span> = 
+							 	 	<span>{{item.res}}</span>
+							 	</span>
+						  </a>  
+						</div>
+				</div> 
+				<div class="row">
+					<div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-danger" ng-click="clear()">
+				       		Clear All
+				       	</span>
+				    </div>
+					<div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-danger" ng-click="reset()">Clear</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				    	<div class="row prevNxt">
+					       	<span class="btn btn-default" ng-click="show = !show">
+					       		<span class="glyphicon glyphicon glyphicon-expand" aria-hidden="true" title="Show All Records" ng-click="autohide = !autohide" ng-class="autohide ? 'glyphicon-collapse-up' : 'glyphicon-collapse-down'"></span>
+					       	</span>
+					       	<span class="btn btn-default" ng-click="delete()" ng-disabled="!disable">
+					       		<span class="glyphicon glyphicon-trash" aria-hidden="true" ng-model="trash"></span>
+					       	</span>
+					    </div>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-success" ng-click="storage()">Save</span>
+				    </div>
+					<div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(1)">1</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(2)">2</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(3)">3</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('+')">+</span>
+				    </div>
+					<div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default"  ng-click="numPressed(4)" ng-click="numPressed(3)">4</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(5)">5</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(6)">6</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('-')">-</span>
+				    </div>
+					<div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(7)">7</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(8)">8</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(9)">9</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('*')">X</span>
+				    </div>
+					<div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed('.')">.</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-default" ng-click="numPressed(0)">0</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-click="calculate('/')">/</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-warning" ng-disabled="isDisabled" ng-click="del()"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></span>
+				    </div>
+					<div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('%')">%</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('sqrt')">SQRT</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('^')">^</sup></span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-success" ng-click="calculate('=')">=</span>
+				    </div>
+					<div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('l')">Log</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('sin')">sin</span>
+				    </div>
+				    <div class="col-sm-3 col-xs-3">
+				       	<span class="btn btn-primary" ng-disabled="isDisabled" ng-click="calculate('cos')">cos</sup></span>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<footer class="container-fluid text-center">
+			<p>Powered By Tiger</p>
+		</footer>
+	</div>
+</body>
+</html>

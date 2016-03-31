@@ -1,0 +1,86 @@
+ .container{
+    margin:2% 0 !important;
+}
+.main.container{
+    min-width: 300px;
+    max-width: 560px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    padding:1% !important;
+    margin:2% auto !important;
+ }
+.row{
+    margin:0
+}
+span.glyphicon {
+    font-size: 1.1em;
+}
+.resultContainer{
+    margin:2% 0;
+    border:1px solid #ccc;
+    text-align: right;
+    background:#fff;
+}
+ .label{
+    color: #000;
+    padding:8px;
+    font-size:12px;
+}
+.label span{
+    color:#419641;
+}
+.calculation{
+    float: right;
+    max-width: 70%;
+    text-align: right;
+    white-space: initial;
+}
+.records{
+    max-height: 84px;
+    overflow-y: auto;
+}
+.list-group-item{
+    padding: 5px 15px;
+    font-size: 12px;
+}
+.result{
+    float: left;
+}
+.recordList{
+    overflow: hidden;
+}
+.btn{
+    width: 96%;
+    padding: 12% 0;
+    margin: 2% 2%;
+    font-size: 110%;
+    font-weight: bold;
+}
+.prevNxt .btn{
+    width:43%;
+}
+div{
+    padding:0 !important;
+}
+input[type="text"], .answer{
+    width:93%;
+    padding: 2%;
+    margin:0 2%;
+    border: none;
+    text-align: right;
+}
+input[type="text"]:focus{
+    outline: 0;
+}
+input[type="text"].editedName{
+    padding: 0;
+    width: auto;
+    float: left;
+    text-align: left;
+    margin: 0;
+    background: transparent;
+}
+input[type="text"].editedName:focus{
+    background: #fff;
+    color: #000
+}
