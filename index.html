@@ -23,7 +23,7 @@
 			  	<div class="row">
 			  		<label class="label result">Total: <span>{{result}}</span></label>
 			  		<label class="label calculation">Calculation: <span>{{calculation}}</span></label>
-				    <input type="text" id="calNumber" ng-model="calNumber" placeholder="0" focus="true" ng-blur="onElementBlur()" tabindex="1" only-digits/>
+				    <input type="text" id="calNumber" ng-model="calNumber" placeholder="0" focus="true" ng-blur="onElementBlur()" tabindex="1" readonly only-digits/>
 				</div>
 				<div class="row">
 				    <span class="operand" data-model="operand">{{operand}}</span>
@@ -63,6 +63,7 @@
 				    <div class="col-sm-3 col-xs-3">
 				       	<span class="btn btn-success" ng-click="storage()">Save</span>
 				    </div>
+				    <div class="clearfix"></div>
 					<div class="col-sm-3 col-xs-3">
 				       	<span class="btn btn-default" ng-click="numPressed(1)">1</span>
 				    </div>
