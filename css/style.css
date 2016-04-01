@@ -84,7 +84,7 @@ input[type="text"].editedName:focus{
     background: #fff;
     color: #000
 }
-@media only screen and (min-device-width : 480px) and (max-device-width : 1024px) and (orientation : landscape) { 
+@media handheld, screen and (min-device-width : 480px) and (max-device-width : 1024px) and (orientation : landscape) { 
     .landscapePart1{
         width:60% !important;
         float:left;
