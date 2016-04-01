@@ -96,7 +96,7 @@ app.controller('CalculatorController', function($scope, CalculatorService, detai
     };
     $scope.calculate = function(operator){
      if($scope.operatorClicked=="false"){
-            if($scope.result == null && $scope.calNumber != ""){
+            if($scope.result == null){
                $scope.result =  $scope.calNumber;
                $scope.calculation = ""+$scope.result;
                oldOperator = operator;
