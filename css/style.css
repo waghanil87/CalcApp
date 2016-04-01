@@ -3,11 +3,11 @@
 }
 .main.container{
     min-width: 300px;
-    max-width: 560px;
+    max-width: 640px;
     border-radius: 10px;
     border: 2px solid #ccc;
     padding:1% !important;
-    margin:2% auto !important;
+    margin:0 auto !important;
  }
 .row{
     margin:0
@@ -17,7 +17,7 @@ span.glyphicon {
 }
 .resultContainer{
     margin:2% 0;
-    border:1px solid #ccc;
+    border:3px solid #ccc;
     text-align: right;
     background:#fff;
 }
@@ -31,7 +31,6 @@ span.glyphicon {
 }
 .calculation{
     float: right;
-    max-width: 70%;
     text-align: right;
     white-space: initial;
 }
@@ -45,14 +44,15 @@ span.glyphicon {
 }
 .result{
     float: left;
+    text-align: left;
 }
 .recordList{
     overflow: hidden;
 }
 .btn{
     width: 96%;
-    padding: 12% 0;
-    margin: 2% 2%;
+    padding: 12px 0;
+    margin: 2px 2%;
     font-size: 110%;
     font-weight: bold;
 }
@@ -83,4 +83,20 @@ input[type="text"].editedName{
 input[type="text"].editedName:focus{
     background: #fff;
     color: #000
+}
+@media only screen and (min-device-width : 480px) and (max-device-width : 1024px) and (orientation : landscape) { 
+    .landscapePart1{
+        width:60% !important;
+        float:left;
+    }
+    .landscapePart2{
+        width:40% !important;
+        float:left;
+    }
+    .landscapePart2 .col-xs-3{
+        width:33% !important;
+    }
+    .landscapePart2 .col-xs-6{
+        width:66% !important;
+    }
 }

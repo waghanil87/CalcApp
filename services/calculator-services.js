@@ -66,6 +66,9 @@ app.service('delFilter', function(){
         var newnumber = number;
         newnumber=newnumber.toString();
         newnumber=newnumber.substring(0, newnumber.length-1);
-        return newnumber;
+        if(newnumber.length>0)
+            return newnumber;
+        else
+            return 0;
     }
 })
