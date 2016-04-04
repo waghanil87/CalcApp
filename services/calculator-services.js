@@ -39,7 +39,7 @@ app.service('CalculatorService', function(MathService){
             return MathService.divide(a,b);
         else if (operator=='%')
             return a % b;
-        else if (operator=='l')
+        else if (operator=='log')
             return Math.log(b);
         else if (operator=='sin')
             return Math.sin(b);

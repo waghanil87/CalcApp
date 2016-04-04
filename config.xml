@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.anilwagh.www"
+        versionCode = "1" 
+        version     = "1.0.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Scientific Calculator</name>
+
+    <description>
+        It uses HTML 4, CSS, Bootstrap and angular JS
+    </description>
+
+    <author href="#" email="waghanil87@gmail.com">
+        Anil Wagh
+    </author>
+    <icon src="images/calc-icon.jpg" platform="android" width="180" height="180" />
+
+    <!-- <icon src="images/calc-bg.jpg" platform="android" qualifier="ldpi" />
+    <icon src="images/calc-bg.jpg" platform="android" qualifier="mdpi" />
+    <icon src="images/calc-bg.jpg" platform="android" qualifier="hdpi" />
+    <icon src="images/calc-bg.jpg" platform="android" qualifier="xhdpi" />
+    <icon src="images/calc-bg.jpg" platform="android" qualifier="xxhdpi" />
+    <icon src="images/calc-bg.jpg" platform="android" qualifier="fr-xxhdpi" /> -->
+
+    <splash src="images/calc-bg.jpg" platform="android" />
+
+    <splash src="images/calc-bg.jpg" platform="android" qualifier="ldpi" />
+    <splash src="images/calc-bg.jpg" platform="android" qualifier="mdpi" />
+    <splash src="images/calc-bg.jpg" platform="android" qualifier="hdpi" />
+    <splash src="images/calc-bg.jpg" platform="android" qualifier="xhdpi" />
+    <splash src="images/calc-bg.jpg" platform="android" qualifier="fr-xhdpi" />
+    <splash src="images/calc-bg.jpg" platform="android" qualifier="port-xxhdpi" />
+    <splash src="images/calc-bg.jpg" platform="android" qualifier="land-xxhdpi" />
+    
+    <gap:platform name="android" />
+
+</widget>
