@@ -53,5 +53,5 @@ app.directive('onlyDigits', function () {
         }            
         ctrl.$parsers.push(inputValue);
       }
-    };
- });
+  };
+});

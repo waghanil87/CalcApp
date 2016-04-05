@@ -29,12 +29,12 @@ app.controller('CalculatorController', function($scope, CalculatorService, detai
     }
     //delete last charactor in input
     $scope.del=function(){
-        $scope.calNumber=delFilter(parseInt($scope.calNumber));
+        $scope.calNumber=delFilter(parseFloat($scope.calNumber));
     }
     //Soft keyboard input
     $scope.numPressed = function(num) {
         $scope.calNumber = $scope.calNumber +""+num;
-        $scope.calNumber = parseInt($scope.calNumber);
+        $scope.calNumber = parseFloat($scope.calNumber);
         $scope.setFocus();
         $scope.operatorClicked="false";
     }
@@ -97,7 +97,7 @@ app.controller('CalculatorController', function($scope, CalculatorService, detai
     $scope.calculate = function(operator){
      if($scope.operatorClicked=="false"){
             if($scope.result == null){
-               $scope.result =  $scope.calNumber;
+               $scope.result =  parseFloat($scope.calNumber);
                $scope.calculation = ""+$scope.result;
                oldOperator = operator;
             }else if($scope.calNumber == ""){
@@ -105,7 +105,7 @@ app.controller('CalculatorController', function($scope, CalculatorService, detai
             }else{
                 if(oldOperator !='=')
                     $scope.calculation =  $scope.calculation +" "+ oldOperator +" "+ $scope.calNumber;
-                $scope.result = CalculatorService.maths(parseInt($scope.result), parseInt($scope.calNumber), oldOperator);
+                $scope.result = CalculatorService.maths(parseFloat($scope.result), parseFloat($scope.calNumber), oldOperator);
                 $scope.calNumber = 0; 
                 oldOperator = operator;
             }
