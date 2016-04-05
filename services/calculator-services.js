@@ -48,10 +48,13 @@ app.service('CalculatorService', function(MathService){
         else if (operator=='sqrt')
             return Math.sqrt(b);
         else if(operator=='^'){
-            for(var i=0; i<b; i++){
+            console.log(b+"<b")
+            var i=0;
+            for(var i=1; i<b; i++){
                 total=total *a;
-                return total;
+                console.log(a)
             }
+            return total;
         }
         if(comparision == '='){
             console.log(a)
