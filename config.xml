@@ -16,9 +16,9 @@
     <author href="#" email="waghanil87@gmail.com">
         Anil Wagh
     </author>
-    <icon src="icon.png" platform="android" />
+<!--    <icon src="icon.png" platform="android" />
 
-<!--     <icon src="icon.png" platform="android" qualifier="ldpi" />
+    <icon src="icon.png" platform="android" qualifier="ldpi" />
     <icon src="icon.png" platform="android" qualifier="mdpi" />
     <icon src="icon.png" platform="android" qualifier="hdpi" />
     <icon src="icon.png" platform="android" qualifier="xhdpi" />
